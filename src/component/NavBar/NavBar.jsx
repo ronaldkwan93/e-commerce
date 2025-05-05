@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className={classes.nav}>
       <div >
-        <Link to="menu" className={classes.nav__header}>
+        <Link to="/" className={classes.nav__header}>
           <LuCoffee />
           <h1>Café on Click!</h1>
         </Link>
