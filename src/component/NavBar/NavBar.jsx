@@ -15,7 +15,7 @@ const NavBar = () => {
       <div>
         <ul className={classes.nav__links}>
           <li>
-            <Link to="/menu">Menu</Link>
+            <Link to="/">Menu</Link>
           </li>
           <li>
             <Link to="/about">About</Link>

@@ -1,10 +1,15 @@
-
-const Menu = () => {
+const Menu = ({ menuData }) => {
+  if(!menuData) return <p>No menu data</p>
+  console.log(menuData);
   return (
     <div>
-      <h1>Menu page!</h1>
+      {menuData.map((item) => (
+        <div>
+          <p>{item.title}</p>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

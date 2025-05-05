@@ -6,8 +6,16 @@ import Menu from "../Pages/Menu/Menu";
 import About from "../Pages/About/About";
 import Footer from "../component/Footer/Footer";
 import classes from './Layout.module.scss'
+import { useEffect, useState } from "react";
+import { getMenuData } from "../service/MenuServiceProvider";
 
 const Layout = () => {
+  const [menuData, setMenuData] = useState([])
+
+  useEffect(() => {
+    getMenuData().then((data) => setMenuData(data));
+  }, [])
+
   return (
     <>
       <BrowserRouter>
@@ -15,8 +23,7 @@ const Layout = () => {
           <NavBar />
 
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
+            <Route path="/" element={<Menu menuData={menuData}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
