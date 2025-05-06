@@ -1,0 +1,11 @@
+.page {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    img {
+        width: 80%;
+        padding: 0 2em;
+        margin: auto;
+    }
+}
