@@ -27,7 +27,7 @@ const Layout = () => {
             <Route path="/" element={<Menu menuData={menuData}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/item" element={<ItemPage />} />
+            <Route path="/item/:id" element={<ItemPage />} />
           </Routes>
           <Footer />
         </div>
