@@ -8,6 +8,7 @@ import Footer from "../component/Footer/Footer";
 import classes from './Layout.module.scss'
 import { useEffect, useState } from "react";
 import { getMenuData } from "../service/MenuServiceProvider";
+import ItemPage from "../Pages/ItemPage/ItemPage";
 
 const Layout = () => {
   const [menuData, setMenuData] = useState([])
@@ -26,6 +27,7 @@ const Layout = () => {
             <Route path="/" element={<Menu menuData={menuData}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/item" element={<ItemPage />} />
           </Routes>
           <Footer />
         </div>
