@@ -5,6 +5,9 @@
     align-items: center;
     border: 1px solid black;
     margin: 5em;
+    &__back {
+        margin-right: 90%;
+    }
     img {
         width: 200px;
     }
