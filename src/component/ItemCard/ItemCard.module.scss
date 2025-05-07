@@ -1,6 +1,6 @@
 .card {
   border: 1px solid black;
-  padding: 2.5em;
+  padding: 3em 2em;
   width: 160px;
   text-align: center;
   margin: 0.5em;
@@ -10,10 +10,49 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
+  }
+  &__title {
+    padding-bottom: 1em;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+    padding-right: 0;
+  }
+
+  &__add {
+    border: 1px solid black;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    padding: 10px;
+
+    position: absolute;
+    right: -1em;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #d3d3d3; // light grey
+    }
   }
 }

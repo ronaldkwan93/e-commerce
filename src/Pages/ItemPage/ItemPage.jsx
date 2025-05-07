@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
 import { addItemToCart, getItemById } from "../../service/MenuServiceProvider";
 import classes from "./ItemPage.module.scss";
 
-const ItemPage = () => {
-  const navigate = useNavigate();
-
-  const { id } = useParams();
+const ItemPage = ({ id }) => {
   const [data, setData] = useState(null);
   const [notification, setNotification] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [count, setCount] = useState(1);
 
   useEffect(() => {
-    getItemById(id).then((data) => setData(data));
-  }, []);
+    if (id) {
+      getItemById(id).then((data) => setData(data));
+    }
+  }, [id]);
 
   const handleAddToCart = async () => {
     try {
@@ -41,17 +39,10 @@ const ItemPage = () => {
     setCount(count + 1);
   };
 
-  const handleBackBtn = () => {
-    navigate("/");
-  };
-
-  console.log(data);
   if (!data) return <p>Loading...</p>;
+
   return (
     <div className={classes.page}>
-      <div className={classes.page__back}>
-        <button onClick={handleBackBtn}>back</button>
-      </div>
       <p>{data.title}</p>
       <p>{data.description}</p>
       <img src={data.imgUrl} alt={data.title} />
@@ -62,7 +53,7 @@ const ItemPage = () => {
         {count}
         <button onClick={incrementCount}>+</button>
       </div>
-      <button onClick={handleAddToCart}>Add to cart</button>
+      <button onClick={handleAddToCart}>Add to Order</button>
       {showNotification && <p>{notification}</p>}
     </div>
   );

@@ -1,7 +1,30 @@
 .container {
-    display: flex;
-   flex-wrap: wrap;
-   gap: 1.5em;
-   justify-content: center;
-    margin: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+  margin: 1em;
+  padding: 0 15em;
 }
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    // padding: 2rem;
+    max-width: 500px;
+    width: 50%;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+  }
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px); 
+}
+

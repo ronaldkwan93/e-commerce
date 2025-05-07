@@ -7,11 +7,18 @@ const ItemCard = ({ item }) => {
   const handleOnClick = (itemId) => {
     console.log(`clicked ` + itemId);
     navigate(`/item/${itemId}`);
-  }
+  };
   return (
-    <div className={classes.card} onClick={() => handleOnClick(item.id)}>
+    <div
+      className={classes.card}
+      // onClick={() => handleOnClick(item.id)}
+    >
       <img src={item.imgUrl} alt={item.title} />
-      <p>{item.title}</p>
+      <p className={classes.card__title}>{item.title}</p>
+      <div className={classes.card__bottom}>
+       
+        <p className={classes.card__add}>+</p>
+      </div>
     </div>
   );
 };
