@@ -7,15 +7,19 @@ import About from "../Pages/About/About";
 import Footer from "../component/Footer/Footer";
 import classes from './Layout.module.scss'
 import { useEffect, useState } from "react";
-import { getMenuData } from "../service/MenuServiceProvider";
 import ItemPage from "../Pages/ItemPage/ItemPage";
+import { getCartItems, getMenuData } from "../service/MenuServiceProvider";
 
 const Layout = () => {
   const [menuData, setMenuData] = useState([])
+  const [cartData, setCartData] = useState([])
 
   useEffect(() => {
     getMenuData().then((data) => setMenuData(data));
-  }, [])
+    getCartItems().then((data) => setCartData(data));
+  }, []) 
+
+
 
   return (
     <>
@@ -26,7 +30,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Menu menuData={menuData}/>} />
             <Route path="/about" element={<About />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart data={cartData}/>} />
             <Route path="/item/:id" element={<ItemPage />} />
           </Routes>
           <Footer />
