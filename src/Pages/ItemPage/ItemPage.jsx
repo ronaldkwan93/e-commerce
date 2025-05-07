@@ -6,6 +6,8 @@ import classes from "./ItemPage.module.scss";
 const ItemPage = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [notification, setNotification] = useState(null);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     getItemById(id).then((data) => setData(data));
@@ -20,9 +22,11 @@ const ItemPage = () => {
         quantity: 1,
         imgUrl: data.imgUrl,
       });
-      console.log("Item added to cart!");
+      setNotification('Added Item(s) to cart!');
+      setShowNotification(true);
     } catch (err) {
-      console.log("Failed to add item to cart.");
+      setNotification("Failed to add item to cart.");
+      setShowNotification(true);
     }
   };
 
@@ -34,6 +38,7 @@ const ItemPage = () => {
       <p>{data.description}</p>
       <img src={data.imgUrl} alt={data.title} />
       <button onClick={handleAddToCart}>Add to cart</button>
+      {showNotification && <p>{notification}</p>}
     </div>
   );
 };
